@@ -2,8 +2,5 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def monkeyPageView(request):
-    return render(request, 'monkey.html')
-
-def engineerPageView(request):
-    return render(request, 'engineer.html')
+def loginPageView(request):
+    return render(request, 'login.html')
