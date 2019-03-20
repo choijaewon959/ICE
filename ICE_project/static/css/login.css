@@ -1,4 +1,58 @@
+.tm_container{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
 #logo_txt{
-    color: #4286f4;
+    /*color: #4286f4;*/
+    color: black;
     font-size:   80px;
+    border-right: 1px solid #a5a5a5;
+}
+
+#logo_login{
+    padding-left: 10px;
+    color: #a5a5a5;
+    font-size: 50px;
+}
+
+.input_boxes input{
+    width: 300px;
+}
+
+#role{
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+#Username{
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+#Password{
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+#button_div{
+    display: flex;
+    justify-content: center;
+}
+
+#button_div button{
+    padding: 10px;
+    /*background-color: #4286f4;*/
+    /*color: #4286f4;*/
+    color: black;
+    width: 100px;
+    height: 50px;
+}
+
+#forgot_pw{
+    margin-top: 40px;
+    float: right;
 }

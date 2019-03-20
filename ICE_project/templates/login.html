@@ -12,28 +12,42 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <header class = "logo" >
-        <div id = "logo_txt">ICE</div>
-        <div id = "logo_login">Login</div>
-    </header>
 
-    <div class = "input_boxes">
-        <div id = "role">
-            Role
-            <select>
-                <option>Instructor</option>
-                <option>Learner</option>
-            </select>
-        </div>
-        <div id = "Username">
-            Username
-            <input type="text" name="Username">
-        </div>
-        <div id = "Password">
-            Password
-            <input type="password" name="Password">
-        </div>
-    </div>
+    <div class = "tm_container">
+            <header class = "logo" >
+                    <span id = "logo_txt">ICE </span>
+                    <span id = "logo_login">Login</span>
+            </header>
+            
+                <div class = "input_boxes">
+                    <div id = "role">
+                        Role<br>
+                        <select>
+                            <option>Instructor</option>
+                            <option>Learner</option>
+                        </select>
+                    </div>
+                    <div id = "Username">
+                        Username<br>
+                        <input type="text" name="Username">
+                    </div>
+                    <div id = "Password">
+                        Password<br>
+                        <input type="password" name="Password">
+                    </div>
+                </div>
+
+            <div id="button_div">
+                <button>
+                    Login
+                </button>
+            </div>
+
+            <div id="forgot_pw">
+                <a href="url">Forgot Password?</a>
+            </div>
+    </div><!--tm_container-->
+    
 
 </body>
 </html>
