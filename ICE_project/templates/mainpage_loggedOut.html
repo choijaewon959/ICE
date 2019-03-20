@@ -1,0 +1,54 @@
+<!--Logo bar sticked to the top of the page-->
+{% extends 'logobar.html' %}
+
+<!--css-->
+{% load staticfiles %}
+
+<!--content for mainpage-->
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/mainpage_loggedout.css' %}">
+</head>
+<body>
+    <div class="tm_container">
+        <div id= "dummyDiv">
+        
+        </div>
+
+        <button class="categoryDiv">
+            Merge and Acquisitions
+        </button>
+        <button class="categoryDiv">
+            Markets
+        </button>
+        <button class="categoryDiv">
+            Risk Management
+        </button>
+        <button class="categoryDiv">
+            Securities
+        </button>
+
+        <button class="categoryDiv">
+            Financial Modelling
+        </button>
+        <button class="categoryDiv">
+            Operations
+        </button>
+        <button class="categoryDiv">
+            Fintech
+        </button>
+        <button class="categoryDiv">
+            Information technology
+        </button>
+
+    </div>
+</body>
+
+{% endblock %}

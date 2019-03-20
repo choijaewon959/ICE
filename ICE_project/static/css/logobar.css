@@ -1,0 +1,25 @@
+.logobar{
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+
+}
+
+#logo{
+    font-size: 40px;
+    width: 10%;
+}
+
+#login_link a{
+    text-decoration: none;
+    font-size: 25px;
+    float: right;
+    margin-right: 15px;
+}
+
+#register_link a{
+    text-decoration: none;
+    font-size: 25px;
+    float: right;
+    margin-right: 15px;
+
+}
