@@ -8,3 +8,5 @@ def mainPage_loggedOut_View(request):
 def loginPageView(request):
     return render(request, 'login.html')
 
+def courseOfferedPageView(request):
+    return render(request, 'courseOffered.html')
