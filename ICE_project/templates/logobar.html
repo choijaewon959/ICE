@@ -1,0 +1,22 @@
+<!--css-->
+{% load staticfiles %}
+
+<!--templates/logobar.html-->
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/logobar.css' %}">
+<header class="logobar">
+    <span id="logo">
+        ICE
+    </span>
+
+    <span id="login_link">
+        <a href="{% url 'login' %}">Log in</a>
+    </span>
+
+    <span id="register_link">
+        <a href="">Register</a>
+    </span>
+        
+</header>
+    
+{% block content %}
+{% endblock %}
