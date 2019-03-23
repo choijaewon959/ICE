@@ -1,0 +1,87 @@
+.tm-container{
+    margin: 0 auto;
+}
+
+#name_category_btn{
+    clear:both;
+    padding: 35px;
+}
+
+#name_category{
+    float: left;
+
+}
+
+#name{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#category{
+    font-size: 25px;
+}
+
+#add_module_btn{
+    float: right;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+#add_module_btn button{
+    width: 140px;
+    height: 60px;
+}
+
+#courseDescription{
+    clear: both;
+    padding: 35px 35px 5px 35px;
+}
+
+#courseDescription #course_description_header{
+    font-size: 30px;
+    float: left;
+}
+
+#courseDescription #CECU{
+    font-size: 25px;
+    float: right;
+}
+
+#courseDescription #course_description{
+    width: 100%;
+    height: 90px;
+}
+
+#module_body{
+    padding: 15px 35px 35px 35px;
+}
+
+#moduleTitle{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.newModuleDiv{
+    padding: 20px;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+#moduleBtn{
+    float: right;
+}
+
+#moduleBtn form{
+    display: inline;    
+}
+
+.saveBar{
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #e5e5e5;
+    text-align: center;
+}
+

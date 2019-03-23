@@ -1,0 +1,75 @@
+#manageQuiz_header #courseName{
+    font-size: 40px;
+    float: left;
+    border-right: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+}
+
+#manageQuiz_header #module_QuestionBank_logo{
+    float: left;
+    padding: 15px;
+}
+
+#manageQuiz_header #question_logo{
+    font-size: 20px;
+}
+
+#addQuestionBtnDiv{
+    float: right;
+    margin: 10px;
+}
+
+#addQuestionBtnDiv button{
+    height: 40px;
+}
+
+#boxPanel{
+    clear: both;
+}
+
+.manageQuizBody{
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    width: 60%;
+    height: 300px;
+}
+
+#quizBox header{
+    margin: 5px;
+}
+
+#quizBox header #Questiontxt{
+    font-size: 30px;
+    float: left;
+}
+
+#quizBox header #DeleteBtnDiv{
+    float: right;
+}
+
+#question_txtAreaDiv{
+    padding: 10px;
+    clear: both;
+}
+
+#question_txtAreaDiv #questionTxt{
+    width: 100%;
+    height: 40%;
+}
+
+#answerBox{
+    margin: 5px;
+    float: right;
+}
+
+.saveBar{
+    float: right;
+    margin: 10px;
+}
+
+.saveBar button{
+    height: 40px;
+    width: 100px;
+}

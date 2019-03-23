@@ -19,16 +19,25 @@
 <body>
     <div class="tm_container">
         <div id= "dummyDiv">
-        
+            <form action = "{% url 'createCourse' %}">
+                <button type="submit" class="createCourseBtn">
+                        Create Course
+                </button>
+            </form>
+            <form action = "{% url 'manageCourse' %}">
+                <button type="submit" class="manageCoureBtn">
+                    Manage Course
+                </button>
+            </form>
         </div>
 
-        <form action = "{% url 'courseOffered' %}">
+        <form action = "{% url 'manageQuiz' %}">
             <button type="submit" class="categoryDiv">
                 Merge and Acquisitions
             </button>
         </form>
 
-        <form action = "{% url 'courseOffered' %}">
+        <form action = "{% url 'manageComponent' %}">
             <button class="categoryDiv">
                 Markets
             </button>

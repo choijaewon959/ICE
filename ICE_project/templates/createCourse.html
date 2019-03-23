@@ -1,0 +1,67 @@
+<!--css-->
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Create Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/createCourse.css' %}">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class = "tm-container">
+        <header>
+            Create Course
+        </header>
+
+        <form class="createCourseBody" action=" {% url 'manageCourse' %}">
+            <div class="sub-info">
+                <div id="categoryDiv">
+                    <label for="categoryOptions">Category</label><br>
+                    <select id="categoryOptions">
+                        <option>Merge and Acquisition</option>
+                        <option>Markets</option>
+                        <option>Risk Management</option>
+                        <option>Securities</option>
+                        <option>Financial Modelling</option>
+                        <option>Operations</option>
+                        <option>Fintech</option>
+                        <option>Information Technology</option>
+                    </select>
+                </div>
+
+                <div id="titleDiv">
+                    <label for="title">Title:</label><br>
+                    <input id="title" type="text"></input>
+                </div>
+
+                <div id="cecuDiv">
+                    <label for="cecu">CECU:</label><br>
+                    <input id="cecu" type="text"></input> Units
+                </div>
+                
+            </div>
+    
+            <div id="course-description">
+                <label for="courseDescriptionText">Description</label><br>
+                <textarea id="courseDescriptionText"></textarea>
+            </div>
+
+            <div class="buttonDiv">
+                <button >
+                    Cancel
+                </button>
+
+                <button type="submit">
+                    Create
+                </button>
+            </div>
+            
+        </form><!--createCourseBody-->
+        
+    </div><!--tm-container-->
+</body>
+</html>

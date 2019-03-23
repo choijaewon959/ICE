@@ -1,0 +1,16 @@
+.tm_container{
+    margin: 0 auto;
+    
+}
+
+.categoryName{
+    font-size: 50px;
+}
+
+.courseDiv{
+    width: 20%;
+    float: left;
+    margin: 15px;
+    height: 120px;
+    font-size: 25px;
+}
