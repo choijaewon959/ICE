@@ -23,6 +23,17 @@
     margin: 5px;
 }
 
+#addContentsBtnDiv{
+    float: right;
+    margin: 15px;
+}
+
+#addContentsBtnDiv button{
+    font-size: 15px;
+    height: 30px;
+}
+
+
 #insertComponentBtn{
     float: right;
     margin: 15px;
@@ -69,9 +80,14 @@
     margin-right: 30px;
 }
 
+#componentContentBox img{
+    max-width: 500px;
+}
+
 #componentContentBox textarea{
+    margin:5px;
     width: 100%;
-    height: 400px;
+    height: 150px;
 }
 
 #buttonDiv{
