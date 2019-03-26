@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'basic_pages.apps.BasicPagesConfig',
+    'basic_pages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

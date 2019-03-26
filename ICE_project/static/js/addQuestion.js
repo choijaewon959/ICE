@@ -13,16 +13,16 @@ function addQuestion(){
                     </div> \
                 </header> \
                 <div id= "question_txtAreaDiv"> \
-                    <textarea id="questionTxt"></textarea> \
+                    <textarea name="questionTxt" id="questionTxt"></textarea> \
                 </div> \
                 <div id="optionBox"> \
-                    option1: <input type="text"></input><br> \
-                    option2: <input type="text"></input><br> \
-                    option3: <input type="text"></input><br> \
-                    option4: <input type="text"></input> \
+                    option1: <input name="o1" type="text"></input><br> \
+                    option2: <input name="o2" type="text"></input><br> \
+                    option3: <input name= "o3" type="text"></input><br> \
+                    option4: <input name= "o4"type="text"></input> \
                 </div> \
                 <div id="answerBox"> \
-                    Answer: <input type="text"></input> \
+                    Answer: <input name="answer" type="text"></input> \
                 </div> \
             </div> \
         </div> \

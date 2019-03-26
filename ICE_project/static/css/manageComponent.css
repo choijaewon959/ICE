@@ -39,7 +39,7 @@
     margin: 15px;
 }
 
-#insertComponentBtn button{
+#insertComponentBtn button, input{
     font-size: 15px;
     height: 60px;
 }

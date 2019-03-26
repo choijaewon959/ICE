@@ -21,11 +21,13 @@
     <div class = "tm_container">
         <div class = "categoryName">manage course</div>
         <div id = "course_panel">
-            <form action=" {% url 'courseInstructor' %}">
-                <button type="submit" class="courseDiv">
-                    Course 1
-                </button>  
-            </form>
+            <!-- {% for course in course_list %}
+                <form action=" {% url 'courseInstructor' %}">
+                    <button type="submit" class="courseDiv">
+                        Course 1
+                    </button>  
+                </form>
+            {% endfor %} -->
 
             <form action=" {% url 'courseInstructor' %}">
                 <button type="submit" class="courseDiv">

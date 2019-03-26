@@ -1,0 +1,74 @@
+<!--Logo bar sticked to the top of the page-->
+{% extends 'logobar.html' %}
+
+<!--css-->
+{% load staticfiles %}
+
+<!--content for mainpage-->
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/studyComponents.css' %}">
+    <script src="main.js"></script>
+</head>
+<body>
+    {% for component in components %}
+        <div class= "componentDiv">
+            <div id="componentTitle">
+                <label for="ctitle">Title of Component</label>
+                <label id="ctitle" name="componentTitle" >{{component.component_title}}</label>
+            </div>
+            <div id="componentCreationDate">
+                <label for="ccd">Last Update</label>
+                <label id="ccd" name="componentCD">{{component.component_lastUpdate_date}}</label>
+            </div>
+
+            <div id="componentContentDiv">
+                <label for="componentContent">Content of Component</label>
+                <label id="componentContent">{{component.component_content}}</label>
+                
+            </div>
+        </div>
+    {% endfor %}
+    
+    
+    <form id= "QuestionDiv">
+        {% for q in question %}
+            <div class="manageQuizBody"> 
+                <div id="quizBox"> 
+                    <header> 
+                        <div id="Questiontxt"> 
+                            Question 
+                        </div> 
+                    </header> 
+                    <div id= "question_txtAreaDiv"> 
+                        {{q.Question}}
+                    </div> 
+                    <div id="optionBox"> 
+                        option1: <label name="o1" type="text" >{{q.choice1}}</label><br> 
+                        option2: <label name="o2" type="text" >{{q.choice2}}</label><br> 
+                        option3: <label name= "o3" type="text">{{q.choice3}}</label><br> 
+                        option4: <label name= "o4"type="text" >{{q.choice4}}</label> 
+                    </div> 
+                    <div id="answerBox"> 
+                        Answer: <input name="answer" type="text"></input> 
+                    </div> 
+                </div> 
+            </div> 
+        {% endfor %}
+
+        <input type="submit" value="submit">
+    </form>
+    
+    
+</body>
+</html>
+
+{% endblock %}

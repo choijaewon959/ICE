@@ -1,0 +1,122 @@
+<!--Logo bar sticked to the top of the page-->
+{% extends 'logobar.html' %}
+
+<!--css-->
+{% load staticfiles %}
+
+<!--content for mainpage-->
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>component_list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/courseInstructor.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/component_list.js' %}"></script>
+    <script type='text/javascript'>
+        function addd(){
+    var type = document.getElementById('kind').value
+    var newModule = undefined
+    console.log('abb');
+    if (type == 'text'){
+        newModule = ' \
+            <div class="newModuleDiv"> \
+                <label type="text" name="type" value="text"> \
+                <label for = "componentInputBox">component number:</label> \
+                <input name="number" id="componentInputBox"></input> \
+                <label for = "titleInputBox">Title:</label> \
+                <input name= "title" id="titleInputBox"></input> \
+                <label>component Text</label> \
+                <textarea name="componentTextBox" id="componentContent"></textarea> \
+            </div> \
+        ';
+    }else if (type == "image"){
+        newModule = ' \
+            <div class="newModuleDiv"> \
+                <label type="text" name="type" value="image"> \
+                <label for = "componentInputBox">component number:</label> \
+                <input name="number" id="componentInputBox"></input> \
+                <label for = "titleInputBox">Title:</label> \
+                <input name= "title" id="titleInputBox"></input> \
+                <div id="imageInputDiv"> \
+                       <label for="imgInput">Insert Images</label>\
+                   <input name="pageNum" id="imgInput" type="file" onchange=showImg()></image>\
+                        </div> \
+            </div> \
+        ';
+    }
+        
+    $('#componentContentBox').append(newModule);
+}
+    </script>
+</head>
+<body>
+    <form action="/saveComponent" method="POST">
+        <input id="saveBtn" type="submit" value="SAVE"/>
+        <input name="moduleID" type="text" hidden=true value = "{{ k }}" />
+        {% csrf_token %}
+        <div class= "tm-container">
+            <header class = "courseInfo">
+                    <div id= "name_category_btn" >
+                        <div id="name_category">
+                            <div id="name">
+                                Merger and Acquisition
+                            </div>
+                            <div id="category">
+                                category name
+                            </div>
+                        </div><!--name_category-->
+
+                        <div id="addContentsBtnDiv">
+                            <select name="type" value="type of component" id='kind'>
+                                <option value='text'>Text</option>
+                                <option value='image'>Image</option>
+                            </select>
+                            <input type="button" value="Select" onclick="addd()">
+                        </div>
+                    </div><!--name, category, add module button-->
+
+            </header>
+
+                <div id="module_body">
+                    <div id="modules">
+                        <div id="moduleTitle">
+                            Components
+                        </div>
+
+                        {% for c in components_list %}
+                            <div class="newModuleDiv">
+                              <label for = "moduleInputBox">component title:</label>
+                              <label name="title" id="moduleInputBox">{{ c.component_title }}</label>
+                                <div id="moduleBtn">
+                                        <form action = '/templates/manageComponents.html' method="POST">
+                                            {% csrf_token %}
+                                            <input type="text" value="{{ c.pk }}" hidden=true name=k />
+                                            <input type="text" value="{{ c.component_title }}" hidden=true, name=title />
+                                            <input id="componentsubmit" type="submit" value="View" />
+                                        </form>   
+                                 
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                        <div id="componentContentBox">
+
+                            
+                        </div>
+                    </div><!--modules-->
+                </div>
+            </div>
+ 
+
+           
+        </form>
+</body>
+</html>
+
+{% endblock %}

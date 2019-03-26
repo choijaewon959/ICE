@@ -20,15 +20,16 @@
     <div class="tm_container">
         <div id= "dummyDiv">
             <form action = "{% url 'createCourse' %}">
-                <button type="submit" class="createCourseBtn">
-                        Create Course
-                </button>
+                <input type="submit" class="createCourseBtn" value= "Create Course"/>
             </form>
             <form action = "{% url 'manageCourse' %}">
-                <button type="submit" class="manageCoureBtn">
-                    Manage Course
-                </button>
+                <input type="submit" class="manageCoureBtn" value="Manage Course"/>
             </form>
+
+            <form action = "{% url 'studyModule' %}">
+                <input type="submit" class="studyModuleBtn" value="studyModule"/>
+            </form>
+
         </div>
 
         <form action = "{% url 'manageQuiz' %}">

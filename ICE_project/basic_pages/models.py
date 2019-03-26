@@ -24,7 +24,6 @@ class User(models.Model):
         return self.username
 
 class Course(models.Model):
-    course_id = models.CharField(max_length=100)
     course_title = models.CharField(max_length=100)
     course_description = models.CharField(max_length=100)
     course_cecu = models.IntegerField()
@@ -36,6 +35,7 @@ class Course(models.Model):
 
     total_completion = models.IntegerField()
     total_current_enrollment = models.IntegerField()
+
 
     def enroll_course() -> None:
         pass
@@ -84,14 +84,13 @@ class Instructor(User):
         pass
 
 class Module(models.Model):
-    module_id = models.CharField(max_length=100)
     module_title = models.CharField(max_length=100)
     module_complete = models.BooleanField()
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, default=None)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    module_progress = models.IntegerField()
 
     #modified from class diagram
-    module_progress = models.CharField(max_length=100)
-
+    
     def module_create() -> None:
         pass
 
@@ -124,7 +123,7 @@ class Quiz(models.Model):
     quiz_number_of_questions = models.IntegerField()
     quiz_passingmark = models.IntegerField()
     quiz_complete = models.BooleanField()
-    module = models.ForeignKey(Module, on_delete=models.CASCADE, default=None)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, default='0', null=True)
 
     def quiz_create() -> None:
         pass
@@ -142,11 +141,13 @@ class Quiz(models.Model):
         pass
 
 class Question(models.Model):
-    question_id = models.CharField(max_length=100)
     question = models.CharField(max_length=100)   #str of descriptions?
-    choice = models.CharField(max_length=100)
+    choice1 = models.CharField(max_length=100, default=" ")
+    choice2 = models.CharField(max_length=100, default=" ")
+    choice3 = models.CharField(max_length=100, default=" ")
+    choice4 = models.CharField(max_length=100, default=" ")
     answer = models.CharField(max_length=100)
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, default=None)
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, null=True)
 
     def question_create() -> None:
         pass
@@ -161,9 +162,9 @@ class Component(models.Model):
     component_id = models.CharField(max_length=100)
     component_type = models.IntegerField()
     component_title = models.CharField(max_length=100)
-    component_creation_date = models.DateTimeField()
-    component_lastUpdate_date = models.DateTimeField()
-    module = models.ForeignKey(Module, on_delete=models.CASCADE, default=None)
+    component_creation_date = models.DateTimeField(null=True)
+    component_lastUpdate_date = models.DateTimeField(null=True)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, null=True)
 
     def component_create() -> None:
         pass
@@ -175,10 +176,10 @@ class Component(models.Model):
         pass
 
 class Text(Component):
-    component_content = models.CharField(max_length=100)
+    component_content = models.CharField(null=True, max_length=100)
 
 class Image(Component):
-    component_content = models.ImageField()
+    component_content = models.ImageField(null=True)
 
 
 

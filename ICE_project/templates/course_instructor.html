@@ -19,55 +19,88 @@
     <script src="{% static 'js/courseInstructor.js' %}"></script>
 </head>
 <body>
-    <div class= "tm-container">
-        <header class = "courseInfo">
-            <div id= "name_category_btn" >
-                <div id="name_category">
-                    <div id="name">
-                        Course Name
+    <form action="/saveModule" method="POST">
+        {% csrf_token %}
+        <div class= "tm-container">
+            <header class = "courseInfo">
+                    <div id= "name_category_btn" >
+                        <div id="name_category">
+                            <div id="name">
+                                Merger and Acquisition
+                            </div>
+                            <div id="category">
+                                category name
+                            </div>
+                        </div><!--name_category-->
+
+                        <div id="add_module_btn">
+                            <input type="button" onclick="addModule()" value="ADD MODULE">
+                        </div>
+                    </div><!--name, category, add module button-->
+
+                    <div id = "courseDescription">
+                        <header id= "course_description_header">
+                            Course Description
+                        </header>
+                        <div id="CECU">
+                            CECU: 4 units
+                        </div>
+                        <textarea name="courseDes" id="course_description">
+
+                        </textarea>
                     </div>
-                    <div id="category">
-                        category name
-                    </div>
-                </div><!--name_category-->
-    
-                <div id="add_module_btn">
-                    <button onclick="addModule()">
-                        ADD MODULE
-                    </button>
+            </header>
+
+                <div id="module_body">
+                    <div id="modules">
+                        <div id="moduleTitle">
+                            Modules
+                        </div>
+
+                        {% block mods %}
+                        {% for m in mod_list %}
+                            <div class="newModuleDiv">
+                              <label for = "moduleInputBox">module title:</label>
+                              <label name="title" id="moduleInputBox">{{ m.module_title }}</label>
+                                <div id="moduleBtn">
+
+                                    <form></form>
+     
+                                        <form action = '/templates/component_list.html' method="POST">
+                                            {% csrf_token %}
+                                            <input type="text" value="{{ m.pk }}" hidden=true name=k />
+                                            <input type="text" value="{{m.module_title}}" hidden=true, name=title />
+                                            <input id="componentsubmit" type="submit" value="Manage" />
+                                        </form>
+                                    
+
+                                        <form action = '/templates/manageQuiz.html' method="POST">
+                                            {% csrf_token %}
+                                            <input type="text" value="{{ m.pk }}" hidden=true name=k2 />
+                                            <input type="text" value="{{m.module_title}}" hidden=true, name=title2 />
+                                            <input id="quizsubmit" type="submit" value="Manage Quiz" />
+                                        </form>
+                                                  
+                                 
+                                </div>
+                            </div>
+                          {% endfor %}
+                          {% endblock %}
+
+
+                        <div id="moduleBoxes">
+
+                        </div>
+                    </div><!--modules-->
                 </div>
-            </div><!--name, category, add module button-->
-    
-            <div id = "courseDescription">
-                <header id= "course_description_header">
-                    Course Description
-                </header>
-                <div id="CECU">
-                    CECU: 4 units    
-                </div>
-                <textarea id="course_description">
-                    
-                </textarea>
+                <footer class="saveBar">
+                        <input id="saveBtn" type="submit" value="SAVE"/>
+                </footer>
             </div>
-        </header>
+ 
 
-        <div id="module_body">
-            <div id="modules">
-                <div id="moduleTitle">
-                    Modules
-                </div>
-
-                <div id="moduleBoxes">
-
-                </div>
-            </div><!--modules-->
-        </div>
-    </div>
-    
-    <footer class="saveBar">
-        <button id="cancelBtn">cancel</button>
-        <button id="saveBtn">Save</button>
-    </footer>
+           
+        </form>
 </body>
 </html>
 

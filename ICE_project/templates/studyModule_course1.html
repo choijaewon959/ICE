@@ -1,0 +1,48 @@
+<!--Logo bar sticked to the top of the page-->
+{% extends 'logobar.html' %}
+
+<!--css-->
+{% load staticfiles %}
+
+<!--content for mainpage-->
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/studyModule_course1.css' %}">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id= "moduleName">
+        Course_id: {{coursename}}
+    </div>
+    {% for m in modules %}
+        <div class="newModuleDiv">
+            <label for = "moduleInputBox">module title:</label>
+            <label name="title" id="moduleInputBox">{{ m.module_title }}</label>
+            <div id="moduleBtn">
+
+                <form></form>
+
+                    <form action = '/studyComponents' method="POST">
+                        {% csrf_token %}
+                        <input type="text" value="{{ m.pk }}" hidden=true name=k />
+                        <input type="text" value="{{m.module_title}}" hidden=true, name=title />
+                        <input type="text" value="{{m.course_id}}" hidden=true, name=courseID>
+                        <input type="submit" value="STUDY" />
+                    </form>     
+                
+            </div>
+        </div>
+    {% endfor %}
+        
+    
+</body>
+</html>
+{% endblock %}

@@ -19,43 +19,77 @@
     <script src="{% static 'js/addQuestion.js' %}"></script>
 </head>
 <body>
-    <header id="manageQuiz_header">
-        <div id="courseName">
-            Course Name 
-        </div>
 
-        <div id="module_QuestionBank_logo">
-            <div id="module_logo">
-                Module Name
+    <form method="POST" action="/saveQuiz">
+        {% csrf_token %}
+        <header id="manageQuiz_header">
+            <input type="text" hidden="true" name="moduleNum" value={{k2}} />
+            <div id="courseName">
+                Merger And Acquisition
             </div>
 
-            <div id="question_logo">
-                Question Bank
+            <div id="module_QuestionBank_logo">
+                <div id="module_logo">
+                    {{title2}}
+                </div>
+
+                <div id="question_logo">
+                    Question Bank
+                </div>
             </div>
-        </div>
 
-        <div class="saveBar">
-                <button id="saveBtn">Save</button>
-        </div>
+            <div id="addQuestionBtnDiv">
+                <div id="add_question_btn">
+                    <input type="button" onclick="addQuestion()" value="ADD QUESTION"/>
 
-        <div id="addQuestionBtnDiv">
-            <div id="add_question_btn">
-                <button onclick="addQuestion()">
-                    ADD QUESTION
-                </button>
+                </div>
             </div>
-        </div>
 
+            <div class="saveBar">
+                <input type="submit" id="saveBtn" value="SAVE"/>
+            </div>
+
+            
+
+            
+        </header>
         
-    </header>
+        <div id="boxPanel">
+        
+            {% for q in ques %}
+            <div class="manageQuizBody"> 
+                    <div id="quizBox"> 
+                        <header> 
+                            <div id="Questiontxt"> 
+                                Question 
+                            </div> 
+                            <div id="DeleteBtnDiv"> 
+                                <button id="deleteBtn">
+                                    Delete 
+                                </button> 
+                            </div> 
+                        </header> 
+                        <div id= "question_txtAreaDiv"> 
+                            <textarea name="questionTxt" id="questionTxt"> {{ q.question }}</textarea> 
+                        </div> 
+                        <div id="optionBox"> 
+                            option1: <input name="o1" type="text" value={{ q.choice1 }}></input><br> 
+                            option2: <input name="o2" type="text" value={{ q.choice2 }}></input><br> 
+                            option3: <input name= "o3" type="text" value={{ q.choice3 }}></input><br> 
+                            option4: <input name= "o4"type="text" value={{ q.choice4 }}></input> 
+                        </div> 
+                        <div id="answerBox"> 
+                            Answer: <input name="answer" type="text" value={{ q.answer }}></input> 
+                        </div> 
+                    </div> 
+                </div> 
+            
+            {% endfor %}
+       
 
-    
 
-    <div id="boxPanel">
-
-    </div>
-
-    
+        </div>
+    </form>
 </body>
 </html>
 

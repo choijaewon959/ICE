@@ -17,53 +17,72 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/manageComponent.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'js/manageComponent.js' %}"></script>
+    <script type="text/javascript">
+        function addd(){
+            console.log(document.getElementById('kind').value)
+    if(document.getElementById('kind').value=='text'){
+        console.log('adding text');
+        addTextBox();
+    } else if (document.getElementById('kind').value==='image'){
+        addImg();
+    }
+}
+    </script>
 </head>
 <body>
-    <header id="manageComponent_header">
-        <div id="subtitles">
-            <div id="category">Category</div>
-            <div id="courseName">Course Name</div>
-            <div id="moduleName">Module Name</div>
-        </div>
+    <form method="POST" action="/saveComponent">
+        <input type="submit" value="save"/>
 
-        <form id="insertComponentBtn" action= "{% url 'insertComponent' %}">
-            <button type="submit">
-                Insert Component
-            </button>
-        </form>
+        {% csrf_token %}
+        <header id="manageComponent_header">
+                <div id="subtitles">
+                    <div id="category">1</div>
+                    <div id="courseName">Merge And Acquisition</div>
+                    <div id="moduleName">{{ title }}</div>
+                </div>
 
-        <div id="addContentsBtnDiv">
-            <button id="addTextBtn" onclick="addTextBox()">Add Text</button>
-            <button id="addImgBtn" onclick="addImg()">Add Image</button>
-        </div>
+                <input type="text" hidden="true" value={{k}} name="moduleID"/>
+        
 
+        
+                <div id="addContentsBtnDiv">
+                    <select name="type" value="type of component" id='kind'>
+                        <option value='text'>Text</option>
+                        <option value='image'>Image</option>
+                    </select>
+                    <input type="button" value="Select" onclick="addd()">
+                </div>
+        
+        
+                <div id="title_info">
+                    <div id="componentTitle">
+                        <label for="componentTitleInputBox">Component Title: </label>
+                        <input name="componentTitle" id="componentTitleInputBox"></input>
+                    </div>
+                    <div id="creationInfo">
+                        <div id="dateOfCreation">date of creation: -</div>
+                        <div id="dateOfUpdate">date of last update: -</div>
+                    </div>
+        
+                    <div id="page_number">
+                        Page number: <input name="pageNumber" type="text"></input>
+                    </div>
+                </div>
+            </header>
+            
+            <div id="componentContentBox">
 
-        <div id="title_info">
-            <div id="componentTitle">
-                <label for="componentTitleInputBox">Component Title: </label>
-                <input id="componentTitleInputBox"></input>
+                            
             </div>
-            <div id="creationInfo">
-                <div id="dateOfCreation">date of creation: -</div>
-                <div id="dateOfUpdate">date of last update: -</div>
+     
+        
+            <div id="buttonDiv">
+                <input type="button" value="previous"/>
+                <input type= "button" value="next"/>
+
             </div>
-
-            <div id="page_number">
-                Page number: <input type="text"></input>
-            </div>
-        </div>
-    </header>
-
-    <div id="componentContentBox">
-
-    </div>
+    </form>
     
-
-    <div id="buttonDiv">
-        <button>previous</button>
-        <button>next</button>
-        <button>save</button>
-    </div>
 </body>
 </html>
 
